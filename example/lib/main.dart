@@ -51,8 +51,12 @@ class MyHomePage extends StatelessWidget {
                 child: DropdownSearch<String>(
                   key: dropDownKey,
                   selectedItem: "Menu",
-                  items: (filter, infiniteScrollProps) =>
-                      ["Menu", "Dialog", "Modal", "BottomSheet"],
+                  items: (filter, infiniteScrollProps) => [
+                    "Menu",
+                    "Dialog",
+                    "Modal",
+                    "BottomSheet",
+                  ],
                   decoratorProps: DropDownDecoratorProps(
                     decoration: InputDecoration(
                       labelText: 'Examples for: ',
@@ -60,10 +64,16 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   popupProps: PopupProps.menu(
-                      fit: FlexFit.loose, constraints: BoxConstraints()),
+                    fit: FlexFit.loose,
+                    constraints: BoxConstraints(),
+                  ),
                 ),
               ),
-              Padding(padding: EdgeInsets.only(right: 16)),
+              Padding(
+                padding: EdgeInsets.only(
+                  right: 16,
+                ),
+              ),
               FilledButton(
                 onPressed: () {
                   switch (dropDownKey.currentState?.getSelectedItem) {
