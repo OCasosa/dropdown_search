@@ -405,10 +405,6 @@ class DropdownSearchPopupState<T> extends State<DropdownSearchPopup<T>> {
       final List<T> myItems =
           await widget.items!(filter, loadProps?.copy(skip: skip));
 
-      if (myItems.length == 1) {
-        _handleSelectedItem(myItems.first);
-      }
-
       if (loadProps != null) {
         isInfiniteScrollEnded = myItems.length < loadProps.take;
       }
@@ -421,6 +417,10 @@ class DropdownSearchPopupState<T> extends State<DropdownSearchPopup<T>> {
         _addDataToStream(_cachedItems);
       } else {
         _addDataToStream(_applyFilter(filter));
+      }
+
+      if (myItems.length == 1) {
+        _handleSelectedItem(myItems.first);
       }
     } catch (e) {
       _setErrorToStream(e);
