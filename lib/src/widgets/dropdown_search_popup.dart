@@ -419,7 +419,7 @@ class DropdownSearchPopupState<T> extends State<DropdownSearchPopup<T>> {
         _addDataToStream(_applyFilter(filter));
       }
 
-      if (myItems.length == 1) {
+      if (myItems.length == 1 && !_isDisabled(myItems.first)) {
         _handleSelectedItem(myItems.first);
       }
     } catch (e) {
